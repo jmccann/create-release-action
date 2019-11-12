@@ -30,7 +30,7 @@ async function run() {
       draft,
       prerelease
     };
-    if (body != '') {
+    if (body !== '') {
       createReleasePayload.body = body;
     }
 
