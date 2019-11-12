@@ -16,6 +16,9 @@ inputs:
     description: '`true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`'
     required: false
     default: false
+  body:
+    description: The body of text to add to a release
+    required: false
 outputs:
   id:
     description: 'The ID of the created Release'
