@@ -92,6 +92,28 @@ describe('Create Release', () => {
     });
   });
 
+  test('Body appended to release', async () => {
+    core.getInput = jest
+      .fn()
+      .mockReturnValueOnce('refs/tags/v1.0.0')
+      .mockReturnValueOnce('myRelease')
+      .mockReturnValueOnce('false')
+      .mockReturnValueOnce('true')
+      .mockReturnValueOnce('some body text');
+
+    await run();
+
+    expect(createRelease).toHaveBeenCalledWith({
+      owner: 'owner',
+      repo: 'repo',
+      tag_name: 'v1.0.0',
+      name: 'myRelease',
+      draft: false,
+      prerelease: true,
+      body: 'some body text'
+    });
+  });
+
   // test('Outputs are set', async () => {
   //   core.getInput = jest
   //     .fn()
