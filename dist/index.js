@@ -7883,14 +7883,18 @@ async function run() {
     const createReleaseResponse = await github.repos.createRelease(createReleasePayload);
 
     // Get the ID, html_url, and upload URL for the created Release from the response
+    /* eslint-disable no-unused-vars */
     const {
       data: { id: releaseId, html_url: htmlUrl, upload_url: uploadUrl }
     } = createReleaseResponse;
+    /* eslint-enable no-unused-vars */
 
     // Set the output variables for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
+    /* eslint-disable no-undef */
     core.setOutput('id', id);
     core.setOutput('html_url', html_url);
     core.setOutput('upload_url', uploadUrl);
+    /* eslint-enable no-undef */
   } catch (error) {
     core.setFailed(error.message);
   }
