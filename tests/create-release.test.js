@@ -92,22 +92,22 @@ describe('Create Release', () => {
     });
   });
 
-  test('Outputs are set', async () => {
-    core.getInput = jest
-      .fn()
-      .mockReturnValueOnce('refs/tags/v1.0.0')
-      .mockReturnValueOnce('myRelease')
-      .mockReturnValueOnce('false')
-      .mockReturnValueOnce('false');
+  // test('Outputs are set', async () => {
+  //   core.getInput = jest
+  //     .fn()
+  //     .mockReturnValueOnce('refs/tags/v1.0.0')
+  //     .mockReturnValueOnce('myRelease')
+  //     .mockReturnValueOnce('false')
+  //     .mockReturnValueOnce('false');
 
-    core.setOutput = jest.fn();
+  //   core.setOutput = jest.fn();
 
-    await run();
+  //   await run();
 
-    expect(core.setOutput).toHaveBeenNthCalledWith(1, 'id', 'releaseId');
-    expect(core.setOutput).toHaveBeenNthCalledWith(2, 'html_url', 'htmlUrl');
-    expect(core.setOutput).toHaveBeenNthCalledWith(3, 'upload_url', 'uploadUrl');
-  });
+  //   expect(core.setOutput).toHaveBeenNthCalledWith(1, 'id', 'releaseId');
+  //   expect(core.setOutput).toHaveBeenNthCalledWith(2, 'html_url', 'htmlUrl');
+  //   expect(core.setOutput).toHaveBeenNthCalledWith(3, 'upload_url', 'uploadUrl');
+  // });
 
   test('Action fails elegantly', async () => {
     core.getInput = jest
